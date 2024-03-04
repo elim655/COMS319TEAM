@@ -1,0 +1,25 @@
+    header {
+        background-color: #0875e2; /* Darker shade for contrast */
+        padding: 1rem 0; /* Adjusted padding */
+    }
+
+    .container h3 {
+        color: #ffc107; /* Bootstrap primary color for emphasis */
+        margin: 0; /* Removes default margin */
+    }
+
+    .container a {
+        color: #f8f9fa; /* Light color for readability */
+        margin-left: 20px; /* Spacing between links */
+        text-decoration: none; /* Removes underline */
+        transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+    }
+
+    .container a:hover {
+        color: #ffc107; /* Highlight color on hover */
+    }
+
+    /* Additional styling for a more cohesive look */
+    .text-bg-dark {
+        background-color: #212529; /* Consistent with Bootstrap dark theme */
+    }
