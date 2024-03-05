@@ -3,7 +3,7 @@
         {
             "artist_name": "Zach Bryan",
             "genre_of_music": "Folk",
-            "picture": "",
+            "picture": "https://www.rollingstone.com/wp-content/uploads/2023/09/zach-bryan-popularity.jpg?w=1581&h=1054&crop=1",
             "upcoming_events": [
 
             ]
@@ -11,7 +11,7 @@
         {
             "artist_name": "George Strait",
             "genre_of_music": "Country",
-            "picture": "",
+            "picture": "https://www.billboard.com/wp-content/uploads/2022/10/George-Strait-2022-cr-Peggy-Sirota-billboard-1548.jpg?w=1024",
             "upcoming_events": [
 
             ]
@@ -19,7 +19,7 @@
         {
             "artist_name": "Travis Scott",
             "genre_of_music": "Hip-Hop/Rap",
-            "picture": "",
+            "picture": "https://media.pitchfork.com/photos/64d4f35c94b0ef4633cc8332/master/pass/pitchfork-review-template_Wide.png",
             "upcoming_events": [
 
             ]
@@ -27,7 +27,7 @@
         {
             "artist_name": "Taylor Swift",
             "genre_of_music": "Pop",
-            "picture": "https://example.com/taylor_swift.jpg",
+            "picture": "https://variety.com/wp-content/uploads/2023/10/GettyImages-1637208780-e1696959760879.jpg?w=1000&h=563&crop=1",
             "upcoming_events": [
 
             ]
@@ -35,7 +35,7 @@
         {
             "artist_name": "Kendrick Lamar",
             "genre_of_music": "Hip-Hop/Rap",
-            "picture": "https://example.com/kendrick_lamar.jpg",
+            "picture": "https://www.the-sun.com/wp-content/uploads/sites/6/2022/10/MF-Kendrick-Lamar-OFFPLAT-1.jpg?strip=all&quality=100&w=1620&h=1080&crop=1",
             "upcoming_events": [
 
             ]
@@ -43,7 +43,7 @@
         {
             "artist_name": "Ed Sheeran",
             "genre_of_music": "Pop",
-            "picture": "https://example.com/ed_sheeran.jpg",
+            "picture": "https://ew.com/thmb/kP34ASX1oi2K4epH2aSa1h-1fIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ed-Sheeran-091923-f2c47324787042218aaba2ab888b0835.jpg",
             "upcoming_events": [
                 
             ]
