@@ -1,0 +1,52 @@
+{
+    "artists": [
+        {
+            "artist_name": "Zach Bryan",
+            "genre_of_music": "Folk",
+            "picture": "",
+            "upcoming_events": [
+
+            ]
+        },
+        {
+            "artist_name": "George Strait",
+            "genre_of_music": "Country",
+            "picture": "",
+            "upcoming_events": [
+
+            ]
+        },
+        {
+            "artist_name": "Travis Scott",
+            "genre_of_music": "Hip-Hop/Rap",
+            "picture": "",
+            "upcoming_events": [
+
+            ]
+        },
+        {
+            "artist_name": "Taylor Swift",
+            "genre_of_music": "Pop",
+            "picture": "https://example.com/taylor_swift.jpg",
+            "upcoming_events": [
+
+            ]
+        },
+        {
+            "artist_name": "Kendrick Lamar",
+            "genre_of_music": "Hip-Hop/Rap",
+            "picture": "https://example.com/kendrick_lamar.jpg",
+            "upcoming_events": [
+
+            ]
+        },
+        {
+            "artist_name": "Ed Sheeran",
+            "genre_of_music": "Pop",
+            "picture": "https://example.com/ed_sheeran.jpg",
+            "upcoming_events": [
+                
+            ]
+        }
+    ]
+}
