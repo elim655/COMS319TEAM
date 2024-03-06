@@ -10,6 +10,7 @@ fetch("./data.json")
             let genre = myArtists.artists[i].genre_of_music;
             let url = myArtists.artists[i].picture;
             let event = myArtists.artists[i].upcoming_events;
+            let songs = myArtists.artists[i].popular_songs;
     
             let AddCardArtist = document.createElement("div");
             AddCardArtist.classList.add("col");
@@ -24,19 +25,24 @@ fetch("./data.json")
               </div>`;
               CardArtists.appendChild(AddCardArtist);
 
-              for(var j=0; j< event.length; j++){
-                var eventArtist = document.getElementById(card);
-                let date = event[j].date;
-                let time = event[j].time;
-                let state = event[j].state;
-                let city = event[j].city;
-                let building = event[j].building;
-
-                let AddEvent = document.createElement("div");
-                AddEvent.innerHTML = `
-                <p class="card-text"><strong>${date}</strong>, ${time} at ${building} ${city}, ${state}</p>
-                `;
-                eventArtist.appendChild(AddEvent);
+              for(var j=0; j<songs.length; j++){
+                var artistSongs = document.getElementById(card);
+                let song = songs[i].
               }
+
+              // for(var j=0; j< event.length; j++){
+              //   var eventArtist = document.getElementById(card);
+              //   let date = event[j].date;
+              //   let time = event[j].time;
+              //   let state = event[j].state;
+              //   let city = event[j].city;
+              //   let building = event[j].building;
+
+              //   let AddEvent = document.createElement("div");
+              //   AddEvent.innerHTML = `
+              //   <p class="card-text"><strong>${date}</strong>, ${time} at ${building} ${city}, ${state}</p>
+              //   `;
+              //   eventArtist.appendChild(AddEvent);
+              // }
         }
     }
