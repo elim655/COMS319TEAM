@@ -1,4 +1,4 @@
-fetch("./artists.json")
+fetch("./data.json")
     .then(response => response.json())
     .then(myArtists => loadArtists(myArtists));
 
