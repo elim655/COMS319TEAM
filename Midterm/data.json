@@ -4,6 +4,13 @@
             "artist_name": "Zach Bryan",
             "genre_of_music": "Folk",
             "picture": "https://www.rollingstone.com/wp-content/uploads/2023/09/zach-bryan-popularity.jpg?w=1581&h=1054&crop=1",
+            "search_picture":"https://ilistenco.com/wp-content/uploads/DSC03613-scaled.jpg",
+            "popular_songs": [
+                {
+                    "song1":"Something in the Orange",
+                    "song2":"Condemned"
+                }
+            ],
             "upcoming_events": [
                 {
                     "date": "MAR 05",
@@ -81,6 +88,13 @@
             "artist_name": "George Strait",
             "genre_of_music": "Country",
             "picture": "https://www.billboard.com/wp-content/uploads/2022/10/George-Strait-2022-cr-Peggy-Sirota-billboard-1548.jpg?w=1024",
+            "search_picture":"https://www.billboard.com/wp-content/uploads/media/george-strait-performance-2016-billboard-1548.jpg?w=942&h=623&crop=1&resize=942%2C623",
+            "popular_songs": [
+                {
+                    "song1":"Write This Down",
+                    "song2":"Always Never the Same"
+                }
+            ],
             "upcoming_events": [
                 {
                     "date": "MAY 04",
@@ -151,6 +165,13 @@
             "artist_name": "Travis Scott",
             "genre_of_music": "Hip-Hop/Rap",
             "picture": "https://media.pitchfork.com/photos/64d4f35c94b0ef4633cc8332/master/pass/pitchfork-review-template_Wide.png",
+            "search_picture":"https://ca-times.brightspotcdn.com/dims4/default/02ac0d7/2147483647/strip/true/crop/5712x3808+0+0/resize/1200x800!/quality/80/?url=https:%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3a%2Fbb%2F6ac2845146288704cd28aa2c341e%2F2021-astroworld-festival-day-one-99107.jpg",
+            "popular_songs": [
+                {
+                    "song1":"Highest in the Room",
+                    "song2":"Sicko Mode"
+                }
+            ],
             "upcoming_events": [
                 
             ]
@@ -159,6 +180,13 @@
             "artist_name": "Taylor Swift",
             "genre_of_music": "Pop",
             "picture": "https://variety.com/wp-content/uploads/2023/10/GettyImages-1637208780-e1696959760879.jpg?w=1000&h=563&crop=1",
+            "search_picture":"https://www.hawtcelebs.com/wp-content/uploads/2019/07/taylor-swift-performs-at-2019-amazon-prime-day-concert-in-new-york-07-10-2019-7.jpg",
+            "popular_songs": [
+                {
+                    "song1":"You Belong With Me",
+                    "song2":"Love Story"
+                }
+            ],
             "upcoming_events": [
                 {
                     "date":"OCT 18",
@@ -229,6 +257,13 @@
             "artist_name": "Kendrick Lamar",
             "genre_of_music": "Hip-Hop/Rap",
             "picture": "https://www.the-sun.com/wp-content/uploads/sites/6/2022/10/MF-Kendrick-Lamar-OFFPLAT-1.jpg?strip=all&quality=100&w=1620&h=1080&crop=1",
+            "search_picture":"https://th.bing.com/th/id/R.bb2486c4c9ba39eb9775bcfec1678c4e?rik=VohmJXOo4XmVMg&riu=http%3a%2f%2fmediad.publicbroadcasting.net%2fp%2fshared%2fpmp%2fstyles%2fx_large%2fpmpshared%2f201703%2fc79cffd0-60c6-4f2e-967f-079e0926e19b.jpg&ehk=ck4us6afE3sBtFzpZxlhVT16W5KuBA74Im2R6RwZ7so%3d&risl=&pid=ImgRaw&r=0",
+            "popular_songs": [
+                {
+                    "song1":"Humble.",
+                    "song2":"Poetic Justice"
+                }
+            ],
             "upcoming_events": [
 
             ]
@@ -237,6 +272,13 @@
             "artist_name": "Ed Sheeran",
             "genre_of_music": "Pop",
             "picture": "https://ew.com/thmb/kP34ASX1oi2K4epH2aSa1h-1fIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ed-Sheeran-091923-f2c47324787042218aaba2ab888b0835.jpg",
+            "search_picture":"https://th.bing.com/th/id/R.5fc70c5e1c45909fe7a1511ce2b47229?rik=sOpOn5%2fga1X4RA&riu=http%3a%2f%2fimg1.wikia.nocookie.net%2f__cb20130212070902%2fedsheeran%2fimages%2ff%2ff3%2fEd_sheeran_performing.jpg&ehk=fH5eyQL46iw%2bimpAM6y41C%2bfBqBUBfS5lVk7aw4kgP8%3d&risl=&pid=ImgRaw&r=0",
+            "popular_songs": [
+                {
+                    "song1":"Perfect",
+                    "song2":"Shape of You"
+                }
+            ],
             "upcoming_events": [
                 {
                     "date":"MAY 24",
@@ -258,6 +300,13 @@
             "artist_name": "T-Pain",
             "genre_of_music": "Hip-Hop/Rap",
             "picture": "https://s1.ticketm.net/dam/a/135/0dcf5202-3407-49cd-894e-ba06f7527135_RETINA_PORTRAIT_3_2.jpg",
+            "search_picture":"https://i.iheart.com/v3/re/assets.getty/62ab51f8480a4bbbfe48cbcc?ops=contain(1480,0)",
+            "popular_songs": [
+                {
+                    "song1":"Dan Bilzerian",
+                    "song2":"Buy U A Drank"
+                }
+            ],
             "upcoming_events": [
                 {
                     "date":"APR 04",
