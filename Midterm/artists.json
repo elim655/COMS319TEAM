@@ -5,7 +5,76 @@
             "genre_of_music": "Folk",
             "picture": "https://www.rollingstone.com/wp-content/uploads/2023/09/zach-bryan-popularity.jpg?w=1581&h=1054&crop=1",
             "upcoming_events": [
-
+                {
+                    "date": "MAR 05",
+                    "time": "7:00 PM",
+                    "state": "IL",
+                    "city": "Chicago",
+                    "building": "United Center"
+                },
+                {
+                    "date": "MAR 06",
+                    "time": "7:00 PM",
+                    "state": "IL",
+                    "city": "Chicago",
+                    "building": "United Center"
+                },
+                {
+                    "date": "MAR 07",
+                    "time": "7:00 PM",
+                    "state": "IL",
+                    "city": "Chicago",
+                    "building": "United Center"
+                },
+                {
+                    "date": "MAR 09",
+                    "time": "7:00 PM",
+                    "state": "PA",
+                    "city": "Pittsburgh",
+                    "building": "PPG Paints Arena"
+                },
+                {
+                    "date": "MAR 10",
+                    "time": "7:00 PM",
+                    "state": "NY",
+                    "city": "Buffalo",
+                    "building": "KeyBank Center"
+                },
+                {
+                    "date": "MAR 12",
+                    "time": "7:00 PM",
+                    "state": "PA",
+                    "city": "University Park",
+                    "building": "Bryce Jordan Center"
+                },
+                {
+                    "date": "MAR 14",
+                    "time": "7:00 PM",
+                    "state": "NJ",
+                    "city": "Newark",
+                    "building": "Prudential Center"
+                },
+                {
+                    "date": "MAR 15",
+                    "time": "7:00 PM",
+                    "state": "NJ",
+                    "city": "Newark",
+                    "building": "Prudential Center"
+                },
+                {
+                    "date": "MAR 20",
+                    "time": "7:00 PM",
+                    "state": "WI",
+                    "city": "Milwaukee",
+                    "building": "Fiserv Forum"
+                },
+                {
+                    "date": "MAR 22",
+                    "time": "7:00 PM",
+                    "state": "AL",
+                    "city": "Birmingham",
+                    "building": "Legacy Arena at the BJCC"
+                }
             ]
         },
         {
@@ -13,7 +82,69 @@
             "genre_of_music": "Country",
             "picture": "https://www.billboard.com/wp-content/uploads/2022/10/George-Strait-2022-cr-Peggy-Sirota-billboard-1548.jpg?w=1024",
             "upcoming_events": [
-
+                {
+                    "date": "MAY 04",
+                    "time": "5:45 PM",
+                    "state": "IN",
+                    "city": "Indianapolis",
+                    "building": "Lucas Oil Stadium"
+                },
+                {
+                    "date":"MAY 11",
+                    "time":"5:45 PM",
+                    "state":"FL",
+                    "city":"Jacksonville",
+                    "building":"EverBank Stadium"
+                },
+                {
+                    "date":"MAY 25",
+                    "time":"5:45 PM",
+                    "state":"IA",
+                    "city":"Ames",
+                    "building":"Jack Trice Stadium"
+                },
+                {
+                    "date":"JUN 01",
+                    "time":"5:45 PM",
+                    "state":"NC",
+                    "city":"North Carolina",
+                    "building":"Bank of America Stadium"
+                },
+                {
+                    "date":"JUN 08",
+                    "time":"5:45 PM",
+                    "state":"NJ",
+                    "city":"East Rutherford",
+                    "building":"Metlife Stadium"
+                },
+                {
+                    "date":"JUN 29",
+                    "time":"5:45 PM",
+                    "state":"UT",
+                    "city":"Salt Lake City",
+                    "building":"Rice-Eccles Stadium"
+                },
+                {
+                    "date":"JUL 13",
+                    "time":"5:45 PM",
+                    "state":"MI",
+                    "city":"Detroit",
+                    "building":"Ford Field"
+                },
+                {
+                    "date":"JUL 20",
+                    "time":"5:45 PM",
+                    "state":"IL",
+                    "city":"Chicago",
+                    "building":"Soldier Field"
+                },
+                {
+                    "date":"DEC 07",
+                    "time":"5:45 PM",
+                    "state":"NV",
+                    "city":"Las Vegas",
+                    "building":"Allegiant Stadium"
+                }
             ]
         },
         {
@@ -21,7 +152,7 @@
             "genre_of_music": "Hip-Hop/Rap",
             "picture": "https://media.pitchfork.com/photos/64d4f35c94b0ef4633cc8332/master/pass/pitchfork-review-template_Wide.png",
             "upcoming_events": [
-
+                
             ]
         },
         {
@@ -29,7 +160,69 @@
             "genre_of_music": "Pop",
             "picture": "https://variety.com/wp-content/uploads/2023/10/GettyImages-1637208780-e1696959760879.jpg?w=1000&h=563&crop=1",
             "upcoming_events": [
-
+                {
+                    "date":"OCT 18",
+                    "time":"7:00 PM",
+                    "state":"FL",
+                    "city":"Miami",
+                    "building":"Hard Rock Stadium"
+                },
+                {
+                    "date":"OCT 19",
+                    "time":"7:00 PM",
+                    "state":"FL",
+                    "city":"Miami",
+                    "building":"Hard Rock Stadium"
+                },
+                {
+                    "date":"OCT 20",
+                    "time":"7:00 PM",
+                    "state":"FL",
+                    "city":"Miami",
+                    "building":"Hard Rock Stadium"
+                },
+                {
+                    "date":"OCT 25",
+                    "time":"7:00 PM",
+                    "state":"LA",
+                    "city":"New Orleans",
+                    "building":"Caesars Superdome"
+                },
+                {
+                    "date":"OCT 26",
+                    "time":"7:00 PM",
+                    "state":"LA",
+                    "city":"New Orleans",
+                    "building":"Caesars Superdome"
+                },
+                {
+                    "date":"OCT 27",
+                    "time":"7:00 PM",
+                    "state":"LA",
+                    "city":"New Orleans",
+                    "building":"Caesars Superdome"
+                },
+                {
+                    "date":"NOV 01",
+                    "time":"7:00 PM",
+                    "state":"IN",
+                    "city":"Indianapolis",
+                    "building":"Lucas Oil Stadium"
+                },
+                {
+                    "date":"NOV 02",
+                    "time":"7:00 PM",
+                    "state":"IN",
+                    "city":"Indianapolis",
+                    "building":"Lucas Oil Stadium"
+                },
+                {
+                    "date":"NOV 03",
+                    "time":"7:00 PM",
+                    "state":"IN",
+                    "city":"Indianapolis",
+                    "building":"Lucas Oil Stadium"
+                }
             ]
         },
         {
@@ -45,7 +238,97 @@
             "genre_of_music": "Pop",
             "picture": "https://ew.com/thmb/kP34ASX1oi2K4epH2aSa1h-1fIY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Ed-Sheeran-091923-f2c47324787042218aaba2ab888b0835.jpg",
             "upcoming_events": [
-                
+                {
+                    "date":"MAY 24",
+                    "time":"4:00 PM",
+                    "state":"MA",
+                    "city":"Boston",
+                    "building":"Harvard Athletic Complex"
+                },
+                {
+                    "date":"MAY 26",
+                    "time":"6:45 PM",
+                    "state":"CA",
+                    "city":"Napa",
+                    "building":"Napa Valley Expo"
+                }
+            ]
+        },
+        {
+            "artist_name": "T-Pain",
+            "genre_of_music": "Hip-Hop/Rap",
+            "picture": "https://s1.ticketm.net/dam/a/135/0dcf5202-3407-49cd-894e-ba06f7527135_RETINA_PORTRAIT_3_2.jpg",
+            "upcoming_events": [
+                {
+                    "date":"APR 04",
+                    "time":"7:00 PM",
+                    "state":"NC",
+                    "city":"Wilmington",
+                    "building":"North Carolina Azalea Festival"
+                },
+                {
+                    "date":"APR 20",
+                    "time":"10:00 PM",
+                    "state":"NV",
+                    "city":"Las Vegas",
+                    "building":"Zouk Nightclub"
+                },
+                {
+                    "date":"MAY 04",
+                    "time":"11:00 AM",
+                    "state":"NV",
+                    "city":"Las Vegas",
+                    "building":"Las Vegas Festival Grounds"
+                },
+                {
+                    "date":"MAY 24",
+                    "time":"6:45 PM",
+                    "state":"CA",
+                    "city":"Napa",
+                    "building":"Napa Valley Expo"
+                },
+                {
+                    "date":"MAY 26",
+                    "time":"12:00 PM",
+                    "state":"NV",
+                    "city":"Las Vegas",
+                    "building":"AYU Dayclub"
+                },
+                {
+                    "date":"MAY 29",
+                    "time":"6:30 PM",
+                    "state":"TX",
+                    "city":"Houston",
+                    "building":"713 Music Hall"
+                },
+                {
+                    "date":"MAY 30",
+                    "time":"6:30 PM",
+                    "state":"TX",
+                    "city":"Dallas",
+                    "building":"South Side Ballroom"
+                },
+                {
+                    "date":"JUN 04",
+                    "time":"6:30 PM",
+                    "state":"IA",
+                    "city":"Waukee",
+                    "building":"Vibrant Music Hall"
+                },
+                {
+                    "date":"JUN 08",
+                    "time":"7:00 PM",
+                    "state":"WI",
+                    "city":"Milwaukee",
+                    "building":"The Rave-Eagles Club"
+                },
+                {
+                    "date":"JUN 11",
+                    "time":"6:30 PM",
+                    "state":"OH",
+                    "city":"Columbus",
+                    "building":"KEMBA Live!"
+                }
             ]
         }
     ]
