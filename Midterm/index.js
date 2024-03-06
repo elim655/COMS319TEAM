@@ -10,7 +10,8 @@ fetch("./data.json")
             let genre = myArtists.artists[i].genre_of_music;
             let url = myArtists.artists[i].picture;
             let event = myArtists.artists[i].upcoming_events;
-            let songs = myArtists.artists[i].popular_songs;
+            let song1 = myArtists.artists[i].popular_songs.song1;
+            let song2 = myArtists.artists[i].popular_songs.song2;
     
             let AddCardArtist = document.createElement("div");
             AddCardArtist.classList.add("col");
@@ -20,15 +21,15 @@ fetch("./data.json")
                 <h4 class="text-center">${genre}</h4>
                 <img src=${url} class="card-img-top" alt="${name}" ></img>
                 <div id=${card} class="card-body">
-
+                  <p class="text-center" style="font-size:20px;"><strong>Popular Songs</strong></p>
+                  <p class="card-text"><ul>
+                                        <li>${song1}</li>
+                                        <li>${song2}</li>
+                                       </ul>
+                  </p>
                 </div>
               </div>`;
               CardArtists.appendChild(AddCardArtist);
-
-              for(var j=0; j<songs.length; j++){
-                var artistSongs = document.getElementById(card);
-                let song = songs[i].
-              }
 
               // for(var j=0; j< event.length; j++){
               //   var eventArtist = document.getElementById(card);
