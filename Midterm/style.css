@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 *{
     margin: 0;
     padding: 0;
@@ -48,3 +49,44 @@
     background: #292929;
     cursor: pointer;
 }
+=======
+.content-section {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.content-section h2, .content-section p {
+    text-align: center;
+    color: #495057;
+}
+
+.author-info {
+    background-color: #f8f9fa; 
+    border: 1px solid #dee2e6; 
+    border-radius: 0.25rem; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+}
+.author-info h2 {
+    text-align: center;
+    color: #495057; 
+}
+.author-info ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+.author-info ul li {
+    margin-bottom: 10px; 
+}
+.author-info ul li span {
+    font-weight: bold; 
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+>>>>>>> Stashed changes
