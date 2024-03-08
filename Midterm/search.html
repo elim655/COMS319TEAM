@@ -33,10 +33,10 @@
         </div>
       </header>
       <main>
-        <div class="my-container">
-            <form id="my_form" class="search-bar">
+        <div class="my-container" onKeyPress="return searchArtist(event)">
+            <form id="my_form" class="search-bar" onsubmit="return false;">
                 <input type="text" name="inputArtistName" placeholder="Artist Name">
-                <button type="button" onclick="searchArtist();"><img src="images/search.png"></button>
+                <button type="button" onclick="searchArtist(0);"><img src="images/search.png"></button>
             </form>
         </div>
         <div id="display">
