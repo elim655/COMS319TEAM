@@ -9,6 +9,7 @@ function searchArtist(e) {
         function loadSearchedArtist(myArtists) {
 
             let inputArtistName = document.forms["my_form"]["inputArtistName"].value;
+            let found = false;
 
             
 
@@ -22,6 +23,8 @@ function searchArtist(e) {
                 let event = myArtists.artists[i].upcoming_events;
 
                 if (name === inputArtistName) {
+
+                    found = true;
 
                     let AddCardArtist = document.createElement("div");
 
@@ -55,6 +58,17 @@ function searchArtist(e) {
                         eventArtist.appendChild(AddEvent);
                     }
                 }
+            }
+            if(!found){
+                let AddCardArtist = document.createElement("div");
+
+                    AddCardArtist.innerHTML = `
+                    <br>
+                    <br>
+                    <h3 style="text-align: center;"><strong>NO RESULTS FOUND</strong></h3>
+                    `
+
+                    mainContainer.appendChild(AddCardArtist);
             }
         }
     }
