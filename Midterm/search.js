@@ -24,11 +24,15 @@ function searchArtist() {
 
                 AddCardArtist.innerHTML = `
             <div class="card shadow-sm">
-                <h2 class="text-center"><strong>${name}</strong></h2>
+                <h1 class="text-center"><strong>${name}</strong></h1>
                 <h4 class="text-center">${genre}</h4>
                 <img src=${url} class="card-img-top" alt="${name}" ></img>
+                <div style="padding-top: 20px">
+                    <h2 style="float: left"><strong>E V E N T S </strong></h2>
+                    <h3 style="text-indent: 7px; margin-top: 3px"> - ${event.length} RESULTS</h3>
+                </div>
                 <div id=${card} class="card-body">
-                  <h2>Upcoming Events</h2>
+                  
                 </div>
               </div>`;
                 mainContainer.appendChild(AddCardArtist);
