@@ -7,13 +7,12 @@ import { Categories } from "./Categories.js";
 const render_products = (ProductsCategory) => (
   <div className='overflow-y-scroll max-h-800px p-6 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
     {ProductsCategory.map((product, index) => (
-      <div key={index} className="shadow-lg rounded-lg overflow-hidden">
-        <img alt="Product" src={product.image} className="w-full h-48 object-cover object-center" />
+      <div key={index} className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden">
+        <img alt="Product" width="300" src={product.image} className="w-full h-48 object-cover object-center" />
         <div className="p-4">
           <h3 className="text-lg font-semibold text-gray-800 mb-1">{product.title}</h3>
           <p className="text-gray-600 text-sm">Tag: {product.category}</p>
           <div className="flex items-center justify-between mt-2">
-            <span className="text-gray-500 text-sm">Rating: {product.rating.rate}</span>
             <span className="text-green-500 text-sm font-semibold">${product.price}</span>
           </div>
         </div>
@@ -40,22 +39,36 @@ const App = () => {
   }
 
   return (
-    <div className="flex min-h-screen">
-      <div className="bg-slate-800 p-3 text-white w-1/5">
-        <img className="w-full mb-4" src={logo} alt="Logo" />
-        <h1 className="text-2xl font-bold mb-3">Product Catalog App</h1>
-        <p className="mb-10">by <span className="text-orange-400 font-bold">Edmund</span></p>
-        <div>
-          <p className='mb-2'>Tags:</p>
+    <div className="app-container flex flex-col min-h-screen">
+      <nav className="navbar bg-warm-gray-800 text-white p-4 flex justify-between items-center">
+        <div className="logo-container flex items-center">
+          <img className="logo mr-4" src={logo} alt="LiveTix Logo" width="50" />
+          <h1 className="app-title text-xl font-bold">LiveTix</h1>
+        </div>
+        <div className="tags-menu">
           {Categories.map(tag => (
-            <button key={tag} className="bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-opacity-50 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" onClick={() => handleClick(tag)}>{tag}</button>
+            <button
+              key={tag}
+              className="tag-button bg-coral-600 hover:bg-coral-700 rounded-full px-3 py-1 text-sm font-medium mr-2"
+              onClick={() => handleClick(tag)}
+            >
+              {tag}
+            </button>
           ))}
         </div>
-        <input type="search" value={query} onChange={handleChange} className="mt-10 w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search products..." />
-      </div>
-      <div className="flex-grow p-10">
+        <div className="search-bar">
+          <input
+            type="search"
+            value={query}
+            onChange={handleChange}
+            className="search-input w-full p-2 text-sm text-warm-gray-900 bg-warm-gray-50 rounded-lg border border-warm-gray-300 focus:ring-coral-500 focus:border-coral-500"
+            placeholder="Search for events..."
+          />
+        </div>
+      </nav>
+      <main className="content flex-grow p-10">
         {render_products(ProductsCategory)}
-      </div>
+      </main>
     </div>
   );
 }

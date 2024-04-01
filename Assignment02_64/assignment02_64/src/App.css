@@ -36,3 +36,96 @@
     transform: rotate(360deg);
   }
 }
+
+:root { 
+  --purple: #878ad5; 
+  --cool-gray: #f5f5f5; 
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+.app-title {
+  color: var(--purple);
+}
+
+.created-by {
+  margin-bottom: 2rem;
+}
+
+.creator-name {
+  font-weight: bold;
+}
+
+.tags-menu .tag-button {
+  background-color: var(--purple);
+  color: white;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-input {
+  background-color: var(--cool-gray);
+  color: var(--warm-gray);
+  border-color: var(--purple);
+}
+
+.content {
+  background-color: var(--cool-gray);
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-purple-400 {
+  color: var(--purple);
+}
+
+.text-purple-500 {
+  color: var(--purple);
+  --tw-ring-color: var(--purple);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  height: auto;
+}
+
+.app-title {
+  color: var(--purple);
+}
+
+.tags-menu {
+  display: flex;
+}
+
+.search-bar input {
+  margin-left: 1rem; 
+}
