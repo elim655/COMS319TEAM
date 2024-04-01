@@ -38,8 +38,13 @@
 }
 
 :root { 
+  --warm-gray: #090000;
   --purple: #878ad5; 
   --cool-gray: #f5f5f5; 
+}
+
+.sidebar {
+  background-color: var(--warm-gray);
 }
 
 .logo {
@@ -128,4 +133,14 @@
 
 .search-bar input {
   margin-left: 1rem; 
+}
+
+.cart-menu .cart-button {
+  background-color: var(--purple); 
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  outline: none;
 }
