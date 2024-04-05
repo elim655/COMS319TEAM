@@ -1,5 +1,5 @@
 import logo from "./LiveTix.jpg";
-import "./App.css";
+import "./style.css";
 import React, { useState } from "react";
 import { Products } from "./products.js";
 import { Categories } from "./Categories.js";
