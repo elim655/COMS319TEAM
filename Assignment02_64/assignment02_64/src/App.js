@@ -298,7 +298,7 @@ const CartView = ({
   );
 };
 
-const ConfirmationView = ({ cart, checkout}) => {
+const ConfirmationView = ({ cart, dataF}) => {
   const aggregateCartItems = (cartItems) => {
     const aggregatedItems = {};
 
@@ -375,7 +375,7 @@ const ConfirmationView = ({ cart, checkout}) => {
       </div>
       <div className="customer-info mb-4">
         <h3>Customer Information</h3>
-        <p>Full Name: {checkout[0]}</p>
+        <p>Full Name: {dataF.fullName}</p>
         <p>Email: </p>
         <p>Card Number: </p>
         <p>Address Line 1: </p>
@@ -397,7 +397,7 @@ const ConfirmationView = ({ cart, checkout}) => {
 const App = () => {
   const [currentView, setCurrentView] = useState(0);
   const [cart, setCart] = useState([]);
-  const [checkout, setCheckout] = useState([]);
+  const [dataF, setDataF] = useState({});
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
 
@@ -450,6 +450,11 @@ const App = () => {
   function howManyofThis(id) {
     let hmot = cart.filter((cartItem) => cartItem.id == id);
     return hmot.length;
+  }
+
+  const checkout = (event) => {
+    // Process checkout info
+    setDataF(event);
   }
 
   const goToCartView = () => {
@@ -526,7 +531,7 @@ const App = () => {
         {currentView === 2 && (
           <ConfirmationView
             cart={cart}
-            checkout={checkout}
+            dataF={dataF}
           />
         )}
       </main>
