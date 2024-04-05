@@ -103,6 +103,7 @@ const CartView = ({
       state,
       zip,
     });
+    goToConfirmationView();
   };
 
   return (
@@ -287,7 +288,6 @@ const CartView = ({
           </div>
         </div>
         <button
-          onClick={goToConfirmationView}
           className="btn btn-primary btn-lg btn-block"
           type="submit"
         >
@@ -298,7 +298,7 @@ const CartView = ({
   );
 };
 
-const ConfirmationView = ({ cart, dataF}) => {
+const ConfirmationView = ({ cart, dataF, returnToBrowseView }) => {
   const aggregateCartItems = (cartItems) => {
     const aggregatedItems = {};
 
@@ -374,15 +374,17 @@ const ConfirmationView = ({ cart, dataF}) => {
         </p>
       </div>
       <div className="customer-info mb-4">
+        <div>
         <h3>Customer Information</h3>
         <p>Full Name: {dataF.fullName}</p>
-        <p>Email: </p>
-        <p>Card Number: </p>
-        <p>Address Line 1: </p>
-        <p>Address Line 2: </p>
-        <p>City: </p>
-        <p>State: </p>
-        <p>ZIP Code: </p>
+        <p>Email: {dataF.email}</p>
+        <p>Card Number: {dataF.cardNumber}</p>
+        <p>Address Line 1: {dataF.address1}</p>
+        <p>Address Line 2: {dataF.address2}</p>
+        <p>City: {dataF.city}</p>
+        <p>State: {dataF.state}</p>
+        <p>ZIP Code: {dataF.zip}</p>
+        </div>
       </div>
       <button
         onClick={() => window.location.reload()}
@@ -448,7 +450,7 @@ const App = () => {
   };
 
   function howManyofThis(id) {
-    let hmot = cart.filter((cartItem) => cartItem.id == id);
+    let hmot = cart.filter((cartItem) => cartItem.id === id);
     return hmot.length;
   }
 
@@ -531,7 +533,8 @@ const App = () => {
         {currentView === 2 && (
           <ConfirmationView
             cart={cart}
-            dataF={dataF}
+            dataF = {dataF}
+            returnToBrowseView={returnToBrowseView}
           />
         )}
       </main>
