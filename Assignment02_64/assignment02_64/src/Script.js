@@ -64,6 +64,20 @@ const CartView = ({
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+    if (!fullName.trim()) errors.fullName = "Full Name is required";
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) errors.email = "Valid email is required";
+    if (!cardNumber.trim() || cardNumber.replace(/\s/g, "").length !== 16) errors.cardNumber = "Valid card number is required";
+    if (!address1.trim()) errors.address1 = "Address Line 1 is required";
+    if (!city.trim()) errors.city = "City is required";
+    if (!state.trim()) errors.state = "State is required";
+    if (!zip.trim() || zip.length !== 5) errors.zip = "Valid ZIP Code is required";
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const aggregateCartItems = (cartItems) => {
     const aggregatedItems = {};
@@ -93,17 +107,25 @@ const CartView = ({
   const grandTotal = totalPrice + tax;
   const handleCheckout = (event) => {
     event.preventDefault();
-    checkout({
-      fullName,
-      email,
-      cardNumber,
-      address1,
-      address2,
-      city,
-      state,
-      zip,
-    });
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add items before checking out.");
+      return;
+    }
+    if (validateForm()) {
+      checkout({
+        fullName,
+        email,
+        cardNumber,
+        address1,
+        address2,
+        city,
+        state,
+        zip,
+      });
     goToConfirmationView();
+    }else{
+      console.log("Form validation failed");
+    }
   };
 
   return (
@@ -178,38 +200,34 @@ const CartView = ({
               <label htmlFor="fullName">Full Name</label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${formErrors.fullName ? 'is-invalid' : ''}`}
                 id="fullName"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="John Doe"
                 required
               />
-              <div className="invalid-feedback">
-                Please enter your full name.
-              </div>
+              {formErrors.fullName && <div className="invalid-feedback">{formErrors.fullName}</div>}
             </div>
             <div className="col-md-6 mb-3">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
-                className="form-control"
+                className={`form-control ${formErrors.email ? 'is-invalid' : ''}`}
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="john.doe@example.com"
                 required
               />
-              <div className="invalid-feedback">
-                Please enter a valid email address.
-              </div>
+              {formErrors.email && <div className="invalid-feedback">{formErrors.email}</div>}
             </div>
           </div>
           <div className="mb-3">
             <label htmlFor="cardNumber">Card Number</label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${formErrors.cardNumber ? 'is-invalid' : ''}`}
               id="cardNumber"
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
@@ -217,22 +235,20 @@ const CartView = ({
               pattern="\d{16}"
               required
             />
-            <div className="invalid-feedback">
-              Card number must be 16 digits.
-            </div>
+            {formErrors.cardNumber && <div className="invalid-feedback">{formErrors.cardNumber}</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="address1">Address Line 1</label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${formErrors.address1 ? 'is-invalid' : ''}`}
               id="address1"
               value={address1}
               onChange={(e) => setAddress1(e.target.value)}
               placeholder="1234 Main St"
               required
             />
-            <div className="invalid-feedback">Please enter your address.</div>
+            {formErrors.address1 && <div className="invalid-feedback">{formErrors.address1}</div>}
           </div>
           <div className="mb-3">
             <label htmlFor="address2">Address Line 2 (Optional)</label>
@@ -250,40 +266,38 @@ const CartView = ({
               <label htmlFor="city">City</label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${formErrors.city ? 'is-invalid' : ''}`}
                 id="city"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
               />
-              <div className="invalid-feedback">Please enter your city.</div>
+              {formErrors.city && <div className="invalid-feedback">{formErrors.city}</div>}
             </div>
             <div className="col-md-4 mb-3">
               <label htmlFor="state">State</label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${formErrors.state ? 'is-invalid' : ''}`}
                 id="state"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 required
               />
-              <div className="invalid-feedback">Please enter your state.</div>
+              {formErrors.state && <div className="invalid-feedback">{formErrors.state}</div>}
             </div>
             <div className="col-md-4 mb-3">
               <label htmlFor="zip">ZIP Code</label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${formErrors.zip ? 'is-invalid' : ''}`}
                 id="zip"
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
                 pattern="\d{5}"
                 required
               />
-              <div className="invalid-feedback">
-                Please enter a valid ZIP code.
-              </div>
+              {formErrors.zip && <div className="invalid-feedback">{formErrors.zip}</div>}
             </div>
           </div>
         </div>
