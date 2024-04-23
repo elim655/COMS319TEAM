@@ -1,1 +1,0 @@
-export const Categories = ["Country", "Dance/Electronic", "Rock", "Hip-Hop/Rap"];
