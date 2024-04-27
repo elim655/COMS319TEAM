@@ -3,6 +3,7 @@ import AddProductForm from "./AddProductForm";
 import ProductList from "./ProductList";
 import UpdateProductForm from "./UpdateProduct";
 import DeleteProductForm from "./DeleteProduct";
+import AboutUsForm from "./AboutUs";
 import logo from "./LiveTix.jpg";
 
 const App = () => {
@@ -18,6 +19,10 @@ const App = () => {
         <div className="logo-container flex items-center">
           <img className="logo mr-4" src={logo} alt="LiveTix Logo" width="50" />
           <h1 className="app-title text-xl font-bold">LiveTix</h1>
+          <button onClick={() => handleChangeView('aboutUs')}
+            className="bg-coral-600 hover:bg-coral-700 text-white font-bold py-2 px-4 rounded mx-1">
+            About Us
+          </button>
         </div>
         <div>
           <button onClick={() => handleChangeView('addProduct')}
@@ -43,6 +48,7 @@ const App = () => {
         {currentView === 'showProducts' && <ProductList />}
         {currentView === 'updateProduct' && <UpdateProductForm />} 
         {currentView === 'deleteProduct' && <DeleteProductForm />} 
+        {currentView === 'aboutUs' && <AboutUsForm />}
       </main>
     </div>
   );
