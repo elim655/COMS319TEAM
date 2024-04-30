@@ -115,6 +115,7 @@ app.get("/orders/:orderNumber", async (req, res) => {
 app.patch("/orders/:orderNumber", async (req, res) => {
     const { orderNumber } = req.params;
     const updates = req.body;
+    delete updates._id;
 
     try {
         await client.connect();
@@ -122,14 +123,41 @@ app.patch("/orders/:orderNumber", async (req, res) => {
         const collection = db.collection("Order");
         const result = await collection.updateOne({ orderNumber: orderNumber }, { $set: updates });
 
-        if (result.modifiedCount === 0) {
+        if (result.matchedCount === 0) {
             return res.status(404).json({ message: "No order found with that order number." });
+        }
+
+        if (result.modifiedCount === 0) {
+            return res.status(200).json({ message: "Order found but no updates made." });
         }
 
         res.status(200).json({ message: "Order updated successfully" });
     } catch (error) {
         console.error("Failed to update order:", error);
         res.status(500).json({ message: "Failed to update order.", error: error.message });
+    } finally {
+        await client.close();
+    }
+});
+
+// Delete an existing order
+app.delete("/orders/:orderNumber", async (req, res) => {
+    const { orderNumber } = req.params;
+
+    try {
+        await client.connect();
+        const db = client.db(dbName);
+        const collection = db.collection("Order");
+        const result = await collection.deleteOne({ orderNumber: orderNumber });
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: "No order found with that order number." });
+        }
+
+        res.status(200).json({ message: "Order cancelled successfully" });
+    } catch (error) {
+        console.error("Failed to cancel order:", error);
+        res.status(500).json({ message: "Failed to cancel order.", error: error.message });
     } finally {
         await client.close();
     }

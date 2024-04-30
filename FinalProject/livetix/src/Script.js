@@ -1,7 +1,103 @@
 import logo from "./LiveTix.jpg";
 import "./style.css";
 import React, { useState, useEffect } from 'react';
-import BrowseView from "./BrowserView.js";
+
+
+const BrowseView = ({ addToCart, removeFromCart, howManyofThis }) => {
+  const [items, setItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8081/products');
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const handleShowModal = (product) => {
+    setSelectedProduct(product);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div className="overflow-y-scroll max-h-800px p-6 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {items.map((product, index) => (
+        <div
+          key={index}
+          className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden"
+          onClick={() => handleShowModal(product)}
+        >
+          <img
+            alt={product.title}
+            src={product.image}
+            className="w-full h-48 object-cover object-center"
+          />
+          <div className="p-4">
+            <h3 className="text-lg font-semibold text-gray-800 mb-1">
+              {product.title}
+            </h3>
+            <p className="text-gray-600 text-sm">Tag: {product.category}</p>
+            <div className="flex justify-between items-center mt-2">
+              <span className="text-green-500 text-sm font-semibold">
+                ${product.price} <span className="close">&#10005;</span>
+                {howManyofThis(product.id)}
+              </span>
+              <div>
+                <button
+                  onClick={(e) => { e.stopPropagation(); removeFromCart(product); }}
+                  className="btn btn-sm btn-outline-danger mr-2"
+                >
+                  -
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+                  className="btn btn-sm btn-outline-success"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {selectedProduct && (
+        <div className={`modal ${showModal ? 'd-block' : 'd-none'}`} tabIndex="-1" role="dialog" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">{selectedProduct.title}</h5>
+              </div>
+              <div className="modal-body">
+                <img src={selectedProduct.image} alt={selectedProduct.title} className="img-fluid mb-2" />
+                <p>{selectedProduct.description}</p>
+                <p>Category: {selectedProduct.category}</p>
+                <p>Price: ${selectedProduct.price} <span className="close">&#10005;</span> {howManyofThis(selectedProduct.id)}</p>
+
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                <button type="button" className="btn btn-primary" onClick={() => addToCart(selectedProduct)}>Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const CartView = ({
   cart,
@@ -89,7 +185,6 @@ const CartView = ({
             });
             const result = await response.json();
             if (response.ok) {
-                alert('Order placed successfully! Your order number is: ' + result.orderNumber);
                 setCart([]);
                 goToConfirmationView(result.orderNumber);
             } else {
@@ -330,6 +425,29 @@ const ConfirmationView = ({ orderNumber, returnToBrowseView, goToModifyOrderView
     fetchOrderDetails();
   }, [orderNumber]);
 
+  const handleCancelOrder = async () => {
+    if (!window.confirm("Are you sure you want to cancel this order?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://localhost:8081/orders/${orderNumber}`, {
+        method: 'DELETE'
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Order cancelled successfully');
+        returnToBrowseView();
+      } else {
+        throw new Error(data.message || 'Failed to cancel order.');
+      }
+    } catch (error) {
+      console.error('Failed to cancel order:', error);
+      alert('Failed to cancel order: ' + error.message);
+    }
+  };
+
   const {
     cartItems,
     fullName,
@@ -405,12 +523,17 @@ const ConfirmationView = ({ orderNumber, returnToBrowseView, goToModifyOrderView
           <p>ZIP Code: {zip}</p>
         </div>
       </div>
-      <button onClick={returnToBrowseView} className="btn btn-secondary mb-4">
-        Return to Browse
-      </button>
-      <button onClick={() => goToModifyOrderView(orderNumber)} className="btn btn-primary mb-4">
-        Modify Order
-      </button>
+      <div className="button-group text-center">
+        <button onClick={returnToBrowseView} className="btn btn-secondary mx-2">
+          Return to Browse
+        </button>
+        <button onClick={() => goToModifyOrderView(orderNumber)} className="btn btn-primary mx-2">
+          Modify Order
+        </button>
+        <button onClick={handleCancelOrder} className="btn btn-danger mx-2">
+          Cancel Order
+        </button>
+      </div>
     </div>
   );
 };
@@ -465,8 +588,7 @@ const ModifyOrderView = ({ orderNumber, returnToConfirmationView }) => {
               body: JSON.stringify(orderDetails)
           });
           if (!response.ok) throw new Error('Failed to update order.');
-          alert('Order updated successfully');
-          returnToConfirmationView(orderNumber); // Here we ensure to navigate back with the order number
+          returnToConfirmationView(orderNumber);
       } catch (error) {
           setError(error.message);
       } finally {
@@ -478,18 +600,42 @@ const ModifyOrderView = ({ orderNumber, returnToConfirmationView }) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-      <form onSubmit={handleSubmit}>
-          <label>Email: <input type="email" name="email" value={orderDetails.email} onChange={handleChange} /></label>
-          <label>Address Line 1: <input type="text" name="address1" value={orderDetails.address1} onChange={handleChange} /></label>
-          <label>Address Line 2: <input type="text" name="address2" value={orderDetails.address2} onChange={handleChange} /></label>
-          <label>City: <input type="text" name="city" value={orderDetails.city} onChange={handleChange} /></label>
-          <label>State: <input type="text" name="state" value={orderDetails.state} onChange={handleChange} /></label>
-          <label>ZIP Code: <input type="text" name="zip" value={orderDetails.zip} onChange={handleChange} /></label>
-          <button type="submit">Save Changes</button>
-          <button type="button" onClick={() => returnToConfirmationView(orderNumber)}>Cancel</button>
-      </form>
+      <div className="container mt-5">
+          <h2 className="mb-4">Modify Order: <strong>{orderNumber}</strong></h2>
+          <form onSubmit={handleSubmit} className="card p-4">
+              <div className="form-group">
+                  <label>Email:</label>
+                  <input type="email" name="email" value={orderDetails.email} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group">
+                  <label>Address Line 1:</label>
+                  <input type="text" name="address1" value={orderDetails.address1} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group">
+                  <label>Address Line 2:</label>
+                  <input type="text" name="address2" value={orderDetails.address2} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group">
+                  <label>City:</label>
+                  <input type="text" name="city" value={orderDetails.city} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group">
+                  <label>State:</label>
+                  <input type="text" name="state" value={orderDetails.state} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group">
+                  <label>ZIP Code:</label>
+                  <input type="text" name="zip" value={orderDetails.zip} onChange={handleChange} className="form-control" />
+              </div>
+              <div className="form-group d-flex justify-content-between">
+                  <button type="submit" className="btn btn-primary">Save Changes</button>
+                  <button type="button" onClick={() => returnToConfirmationView(orderNumber)} className="btn btn-secondary">Cancel</button>
+              </div>
+          </form>
+      </div>
   );
 };
+
 
 
 
@@ -559,7 +705,7 @@ const goToModifyOrderView = (orderNum) => {
 
         <div className="cart-menu">
           <button onClick={goToCartView} className="cart-button bg-coral-600 hover:bg-coral-700 rounded-full px-3p y-1 text-sm font-medium mr-2">
-            Go to Cart
+            <i className="fas fa-shopping-cart"></i>
           </button>
         </div>
       </nav>
