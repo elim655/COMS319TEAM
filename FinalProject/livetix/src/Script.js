@@ -636,6 +636,47 @@ const ModifyOrderView = ({ orderNumber, returnToConfirmationView }) => {
   );
 };
 
+const UserView = ({ goToOrderLookup }) => {
+  const [email, setEmail] = useState('');
+  const [orderNumber, setOrderNumber] = useState('');
+
+  const handleLookup = () => {
+    goToOrderLookup(email, orderNumber);
+  };
+
+  return (
+    <div className="container my-4">
+      <div className="text-center mb-4">
+        <h2>Lookup Your Order</h2>
+      </div>
+      <div className="form-group">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="form-control mb-3"
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          placeholder="Enter your order number"
+          value={orderNumber}
+          onChange={(e) => setOrderNumber(e.target.value)}
+          className="form-control mb-3"
+        />
+      </div>
+      <div className="text-center">
+        <button onClick={handleLookup} className="btn btn-primary">
+          Lookup Order
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
 
 
 
@@ -672,6 +713,20 @@ const App = () => {
     return hmot.length;
   }
 
+  const goToOrderLookup = async (email, orderNumber) => {
+    try {
+      const response = await fetch(`http://localhost:8081/orders/lookup/${encodeURIComponent(email)}/${encodeURIComponent(orderNumber)}`);
+      if (!response.ok) throw new Error('Order not found.');
+      const orderDetails = await response.json();
+      goToConfirmationView(orderDetails.orderNumber);
+    } catch (error) {
+      console.error('Error looking up order:', error);
+      alert(error.message);
+    }
+};
+
+  
+
   const goToCartView = () => {
     setCurrentView(1);
   };
@@ -690,9 +745,13 @@ const App = () => {
     setCurrentView(2); 
   };
 
-const goToModifyOrderView = (orderNum) => {
-  setOrderNumber(orderNum);
-  setCurrentView(3); 
+  const goToModifyOrderView = (orderNum) => {
+    setOrderNumber(orderNum);
+    setCurrentView(3); 
+  };
+
+  const goToUserView = () => {
+    setCurrentView(4);
   };
 
   return (
@@ -706,6 +765,9 @@ const goToModifyOrderView = (orderNum) => {
         <div className="cart-menu">
           <button onClick={goToCartView} className="cart-button bg-coral-600 hover:bg-coral-700 rounded-full px-3p y-1 text-sm font-medium mr-2">
             <i className="fas fa-shopping-cart"></i>
+          </button>
+          <button onClick={goToUserView} className="user-button bg-blue-600 hover:bg-blue-700 rounded-full px-3 py-1 text-sm font-medium mr-2">
+            <i className="fas fa-user"></i>
           </button>
         </div>
       </nav>
@@ -739,6 +801,9 @@ const goToModifyOrderView = (orderNum) => {
             orderNumber={orderNumber}
             returnToConfirmationView={returnToConfirmationView}
           />
+        )}
+        {currentView === 4 && (
+          <UserView goToOrderLookup={goToOrderLookup} />
         )}
       </main>
     </div>

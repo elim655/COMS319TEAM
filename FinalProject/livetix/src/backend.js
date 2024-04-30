@@ -162,3 +162,32 @@ app.delete("/orders/:orderNumber", async (req, res) => {
         await client.close();
     }
 });
+
+
+// Lookup an order by email and order number using path parameters
+app.get("/orders/lookup/:email/:orderNumber", async (req, res) => {
+    const { email, orderNumber } = req.params;
+
+    console.log("Received request to lookup order with email:", email, "and order number:", orderNumber);
+
+    try {
+        await client.connect();
+        const db = client.db(dbName);
+        const collection = db.collection("Order");
+
+        const order = await collection.findOne({
+            email: decodeURIComponent(email), 
+            orderNumber: decodeURIComponent(orderNumber)
+        });
+
+        if (!order) {
+            return res.status(404).json({ message: "Order not found." });
+        }
+        res.status(200).json(order);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to lookup order.", error: error.toString() });
+    } finally {
+        await client.close();
+    }
+});
+
