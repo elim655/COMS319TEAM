@@ -762,6 +762,12 @@ const App = () => {
           <h1 className="app-title text-xl font-bold">LiveTix</h1>
         </div>
 
+        <div className="tags-menu">
+        <button onClick={returnToBrowseView} className="browse-button bg-green-600 hover:bg-green-700 rounded-full px-3 py-1 text-sm font-medium mr-2">
+            <i className="fas fa-home"></i> Browse
+        </button>
+        </div>
+
         <div className="cart-menu">
           <button onClick={goToCartView} className="cart-button bg-coral-600 hover:bg-coral-700 rounded-full px-3p y-1 text-sm font-medium mr-2">
             <i className="fas fa-shopping-cart"></i>

@@ -191,3 +191,29 @@ app.get("/orders/lookup/:email/:orderNumber", async (req, res) => {
     }
 });
 
+// Search products by name
+app.get("/products/search", async (req, res) => {
+    const { query } = req.query; // Get the search query from URL parameters
+
+    try {
+        await client.connect();
+        const db = client.db(dbName);
+        const collection = db.collection("LiveTix");
+
+        // Use a regex to make the search case-insensitive
+        const products = await collection.find({
+            title: { $regex: new RegExp(query, 'i') }
+        }).toArray();
+
+        if (!products.length) {
+            return res.status(404).json({ message: "No products found." });
+        }
+
+        res.status(200).json(products);
+    } catch (error) {
+        console.error("Failed to search products:", error);
+        res.status(500).json({ message: "Failed to search products.", error: error.message });
+    } finally {
+        await client.close();
+    }
+});
